@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+message MapText {
+     string data = 1;
+}
+message MapNumber {
+     int32 value = 1;
+}
+
+message Text {
+     string data = 1;
+}
+
+message Number {
+     int32 value = 1;
+}
+
+message ReduceText {
+     string data = 1;
+}
+
+message ReduceNumber {
+     int32 value = 1;
+}
+
+service masterFunction {
+    rpc newServer(Text) returns (Number) {}
+    rpc fetchServers(Text) returns (Text) {}
+}
+
+service mapFunction {
+    rpc mapWord(MapText) returns (MapNumber) {}
+}
+
+service reduceFunction {
+    rpc redWord(ReduceText) returns (ReduceNumber) {}
+}
